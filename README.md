@@ -20,7 +20,7 @@ PROD_STORE_PROVIDER=
 PROD_ARBITRATOR_ADDRESS=
 ```
 
-4. Run `yarn && yarn start`.
+4. Run `yarn` and then `yarn start`.
 
 ## Other Scripts
 
