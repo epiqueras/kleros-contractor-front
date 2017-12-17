@@ -1,0 +1,16 @@
+{
+  "presets": [["env", { "modules": false }], "stage-2", "react"],
+  "plugins": [
+    "react-hot-loader/babel",
+    ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass"] }]
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2", "react"],
+      "plugins": [
+        "dynamic-import-node",
+        ["styled-jsx/babel", { "plugins": ["styled-jsx-plugin-sass"] }]
+      ]
+    }
+  }
+}

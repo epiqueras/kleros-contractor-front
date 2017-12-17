@@ -1,0 +1,12 @@
+# Node
+/node_modules/
+
+# Testing
+/coverage/
+
+# Env Vars
+/.env
+
+# Build
+/dist/
+/bundle-size-report.html

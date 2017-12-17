@@ -1,0 +1,11 @@
+{
+  // Place your settings in this file to overwrite default and user settings.
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.projectDetection.autoReload": true,
+  "editor.tabSize": 2,
+  "xo.enable": true,
+  "javascript.validate.enable": false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "editor.formatOnSave": true
+}
