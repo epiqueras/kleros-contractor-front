@@ -7,13 +7,14 @@ import { call, put, takeLatest } from 'redux-saga/effects'
  */
 function* fetchContracts() {
   const accounts = yield call(web3.eth.getAccounts) // T O D O: Keep this in the store?
-  console.log(accounts)
   yield put(
     contractsDux.receiveContracts(
-      yield call(
-        kleros.arbitrator.getContractsForUser,
-        accounts[0].toLowerCase()
-      )
+      accounts[0]
+        ? yield call(
+            kleros.arbitrator.getContractsForUser,
+            accounts[0].toLowerCase()
+          )
+        : []
     )
   )
 }
@@ -26,11 +27,13 @@ function* fetchContract({ payload: { contractAddress } }) {
   const accounts = yield call(web3.eth.getAccounts)
   yield put(
     contractsDux.receiveContract(
-      yield call(
-        kleros.arbitrableContract.getData,
-        contractAddress,
-        accounts[0].toLowerCase()
-      )
+      accounts[0]
+        ? yield call(
+            kleros.arbitrableContract.getData,
+            contractAddress,
+            accounts[0].toLowerCase()
+          )
+        : {}
     )
   )
 }
@@ -43,22 +46,23 @@ function* createContract({ payload: { contract } }) {
   const accounts = yield call(web3.eth.getAccounts)
 
   let newContract = null
-  try {
-    newContract = yield call(
-      kleros.arbitrableContract.deployContract,
-      accounts[0].toLowerCase(),
-      web3.utils.toWei(String(contract.payment), 'ether'),
-      web3.utils.sha3(contract.description),
-      process.env.ARBITRATOR_ADDRESS,
-      contract.timeout,
-      contract.partyB.toLowerCase(),
-      contract.arbitratorExtraData,
-      contract.email,
-      contract.description
-    )
-  } catch (err) {
-    console.log(err)
-  }
+  if (accounts[0])
+    try {
+      newContract = yield call(
+        kleros.arbitrableContract.deployContract,
+        accounts[0].toLowerCase(),
+        web3.utils.toWei(String(contract.payment), 'ether'),
+        web3.utils.sha3(contract.description),
+        process.env.ARBITRATOR_ADDRESS,
+        contract.timeout,
+        contract.partyB.toLowerCase(),
+        contract.arbitratorExtraData,
+        contract.email,
+        contract.description
+      )
+    } catch (err) {
+      console.log(err)
+    }
 
   yield put(contractsDux.receiveCreatedContract(newContract))
 }
