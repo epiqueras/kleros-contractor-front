@@ -8,11 +8,11 @@ import { colors } from './constants/theme'
 import { renderNull } from 'utils'
 
 const Contracts = loadable({
-  loader: () => import('./containers/contracts/index.jsx'),
+  loader: () => import('./containers/contracts/'),
   loading: renderNull // T O D O: Use loading spinner
 })
 const Contract = loadable({
-  loader: () => import('./containers/contracts/contract.jsx'),
+  loader: () => import('./containers/contracts/contract'),
   loading: renderNull // T O D O: Use loading spinner
 })
 

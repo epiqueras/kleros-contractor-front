@@ -9,7 +9,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const { version } = require('./package.json')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index.jsx'],
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     filename: '[name].[chunkhash].js',
     path: join(__dirname, 'dist/'),
@@ -19,7 +19,7 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['*', '.js', '.json', '.jsx'],
+    extensions: ['*', '.js', '.json'],
     alias: {
       components: join(__dirname, 'src/components/'),
       utils: join(__dirname, 'src/utils/')
@@ -28,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },

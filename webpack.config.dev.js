@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const { version } = require('./package.json')
 
 module.exports = {
-  entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.jsx'],
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
   output: {
     filename: '[name].js',
     path: join(__dirname, 'dist/'),
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['*', '.js', '.json', '.jsx'],
+    extensions: ['*', '.js', '.json'],
     alias: {
       components: join(__dirname, 'src/components/'),
       utils: join(__dirname, 'src/utils/')
@@ -32,7 +32,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },

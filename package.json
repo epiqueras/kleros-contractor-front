@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prettify":
-      "prettier --config ./.prettierrc --write \"./*.{js,json,jsx}\" \"./src/**/*.{js,json,jsx}\"",
+      "prettier --config ./.prettierrc --write \"./*.{js,json}\" \"./src/**/*.{js,json}\"",
     "lint": "xo",
     "test": "jest --config jest.config.json",
     "commitmsg": "commitlint -e $GIT_PARAMS",
@@ -17,7 +17,7 @@
       "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "lint-staged": {
-    "*.{js,json,jsx}": ["prettier --config ./.prettierrc --write", "git add"]
+    "*.{js,json}": ["prettier --config ./.prettierrc --write", "git add"]
   },
   "author": "Kleros",
   "license": "MIT",
@@ -134,7 +134,7 @@
       "react/jsx-filename-extension": [
         2,
         {
-          "extensions": [".jsx"]
+          "extensions": [".js"]
         }
       ],
       "react/forbid-component-props": 0,
