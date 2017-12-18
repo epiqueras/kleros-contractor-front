@@ -29,7 +29,8 @@ export default [
   },
   {
     Header: 'Evidences',
-    accessor: 'evidences'
+    accessor: 'evidences',
+    Cell: row => JSON.stringify(row.value)
   },
   {
     Header: 'Party B',

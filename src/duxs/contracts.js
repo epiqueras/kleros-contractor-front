@@ -59,9 +59,11 @@ export const contractShape = PropTypes.shape({
   description: PropTypes.string,
   disputeId: PropTypes.number,
   email: PropTypes.string,
-  evidencePartyA: PropTypes.arrayOf(PropTypes.string),
-  evidencePartyB: PropTypes.arrayOf(PropTypes.string),
-  evidences: PropTypes.arrayOf(PropTypes.string),
+  evidencePartyA: PropTypes.string,
+  evidencePartyB: PropTypes.string,
+  evidences: PropTypes.arrayOf(
+    PropTypes.shape({ _id: PropTypes.string, url: PropTypes.string })
+  ),
   partyB: PropTypes.string,
   timeout: PropTypes.number,
   _id: PropTypes.string

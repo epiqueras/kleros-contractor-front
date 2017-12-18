@@ -17,7 +17,7 @@ let rootSagaTask
  */
 export default function configureStore(initialState = {}) {
   const history = createHistory()
-  const sagaMiddleware = createSagaMiddleware()
+  sagaMiddleware = createSagaMiddleware()
   const enhancers = []
   const middleware = []
   const composeEnhancers =

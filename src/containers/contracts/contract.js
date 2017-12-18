@@ -22,7 +22,7 @@ class Contract extends PureComponent {
         <Link to="/contracts">Back to Contracts</Link>
         {objMap(contract, (value, key) => (
           <div key={key}>
-            {key}: {value}
+            {key}: {JSON.stringify(value)}
           </div>
         ))}
         <style jsx>{`
