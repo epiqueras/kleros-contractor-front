@@ -10,7 +10,7 @@
     "test": "jest --config jest.config.json",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged && yarn run lint && yarn test",
-    "commit": "git-cz",
+    "c": "git-cz",
     "start":
       "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build":
