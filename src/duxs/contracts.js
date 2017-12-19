@@ -23,6 +23,10 @@ export default createReducer(
         ...state.detailedContracts,
         [action.payload.contract.address]: action.payload.contract
       }
+    }),
+    [RECEIVE_CREATED_CONTRACT]: (state, action) => ({
+      ...state,
+      contracts: [...state.contracts, action.payload.contract]
     })
   }
 )
